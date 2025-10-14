@@ -1,4 +1,4 @@
-// src/pages/ProjectsPage.js
+// src/pages/StandsPage.js (Dosya adı olarak bu kullanılmalı)
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -13,7 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 // İkonlar
-import { Building2 } from 'lucide-react'; // 🏙️ Modern ikon eklendi
+import { Building2 } from 'lucide-react';
 
 // --- Modern Building Icon bileşeni ---
 const BuildingIcon = () => (
@@ -48,6 +48,7 @@ const solutionsData = [
   { title: 'Fuar Standı', description: 'Her sektör ve ölçü için özel tasarım, üretim ve kurulum hizmeti.', link: '/stand-detay/fuar' },
 ];
 
+// === DEĞİŞİKLİK 1: Fonksiyon adı "StandsPage" olarak güncellendi ===
 function StandsPage() {
   return (
     <div className="bg-gray-50 min-h-screen pt-16">
@@ -102,7 +103,6 @@ function StandsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {solutionsData.map((solution, index) => (
-              // KARTLARI TIKLANABİLİR YAPMAK İÇİN NavLink KULLANILDI
               <NavLink
                 to={solution.link}
                 key={index}
@@ -133,6 +133,7 @@ function StandsPage() {
   );
 }
 
+// === DEĞİŞİKLİK 2: Export ifadesi "StandsPage" olarak güncellendi ===
 export default StandsPage;
 
 
