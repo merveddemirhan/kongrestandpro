@@ -295,7 +295,7 @@ function HomePage() {
               Fuar Başarınız İçin Hazırız!
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              BUTASTAND olarak kongre ve fuarlarda size özel stand çözümleri sunuyoruz. Projeniz hakkında konuşmak ve hızlı teklif almak için bize ulaşın.
+              KONGRESTANDPRO olarak kongre ve fuarlarda size özel stand çözümleri sunuyoruz. Projeniz hakkında konuşmak ve hızlı teklif almak için bize ulaşın.
             </p>
           </div>
 
