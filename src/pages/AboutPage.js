@@ -34,7 +34,7 @@ function AboutPage() {
           <div>
             <img 
               // Düzeltme: Türkçe karakter ('ö') kaldırıldı. Dosya adını da 'ornek.jpeg' olarak değiştirmelisiniz.
-              src="/ornek.jpeg" 
+              src="/stand-1.jpeg" 
               alt="StandPro Ekip"
               className="rounded-lg shadow-2xl w-full h-full object-cover"
             />
