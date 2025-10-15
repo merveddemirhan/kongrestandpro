@@ -35,8 +35,7 @@ function ContactPage() {
               <p className="text-lg font-semibold">Bizi Takip Edin:</p>
               <div className="flex space-x-6">
                 <a href="https://instagram.com/kongrestandpro" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors"><FaInstagram size={28} /></a>
-                <a href="https://facebook.com/your-page" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors"><FaFacebookF size={28} /></a>
-                <a href="https://linkedin.com/company/your-company" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors"><FaLinkedinIn size={28} /></a>
+              
               </div>
             </div>
           </div>
