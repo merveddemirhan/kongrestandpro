@@ -2,15 +2,14 @@
 import { NavLink } from 'react-router-dom';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import { FiShield, FiUsers } from 'react-icons/fi';
-// YENİ: WhatsApp ikonunu import ediyoruz
 import { FaWhatsapp } from 'react-icons/fa';
 
 function HomePage() {
   return (
     <div>
-      {/* === BÖLÜM 1: TAM EKRAN KARŞILAMA GÖRSELİ === */}
+      {/* === BÖLÜM 1: TAM EKRAN KARŞILAMA GÖRSELİ (MOBİL İÇİN DÜZENLENDİ) === */}
       <div
-        className="relative h-screen bg-cover bg-top bg-no-repeat flex items-center justify-center text-center"
+        className="relative h-screen bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center text-center"
         style={{ backgroundImage: `url(/arkaplan.png)` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
@@ -123,16 +122,13 @@ function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-gray-800 p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white group"><div className="flex justify-center mb-4"><svg className="h-8 w-8 text-blue-400 group-hover:text-white transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div><h3 className="text-lg font-bold mb-2">Telefon</h3><a href="tel:+905511813241" className="text-blue-400 group-hover:text-white font-semibold text-sm hover:underline transition-colors duration-300">+90 551 181 32 41</a></div>
             <div className="bg-gray-800 p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white group"><div className="flex justify-center mb-4"><svg className="h-8 w-8 text-blue-400 group-hover:text-white transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-1" /></svg></div><h3 className="text-lg font-bold mb-2">E-Posta</h3><a href="mailto:kongrestandpro@gmail.com" className="text-blue-400 group-hover:text-white font-semibold text-sm hover:underline transition-colors duration-300">kongrestandpro@gmail.com</a></div>
-            {/* --- DEĞİŞİKLİK BURADA BAŞLIYOR --- */}
             <div className="bg-gray-800 p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white group">
               <div className="flex justify-center mb-4">
-                {/* Eski SVG ikonu yerine FaWhatsapp ikonunu kullandık */}
                 <FaWhatsapp className="h-8 w-8 text-blue-400 group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-lg font-bold mb-2">WhatsApp</h3>
               <a href="https://wa.me/905382172168?text=Merhaba,%20KONGRESTANDPRO%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" className="text-blue-400 group-hover:text-white font-semibold text-sm hover:underline transition-colors duration-300">Hemen Mesaj Gönder</a>
             </div>
-            {/* --- DEĞİŞİKLİK BURADA BİTİYOR --- */}
             <div className="bg-gray-800 p-6 rounded-xl shadow-2xl transition-all duration-300 hover:bg-blue-600 hover:text-white group"><div className="flex justify-center mb-4"><svg className="h-8 w-8 text-blue-400 group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div><h3 className="text-lg font-bold mb-2">Instagram</h3><a href="https://www.instagram.com/kongrestandpro" target="_blank" rel="noopener noreferrer" className="text-blue-400 group-hover:text-white font-semibold text-sm hover:underline transition-colors duration-300">@kongrestandpro</a></div>
           </div>
         </div>
