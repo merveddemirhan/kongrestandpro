@@ -18,7 +18,7 @@ function AboutPage() {
             </h1>
             
             <p className="text-lg mb-6">
-              Biz, fuar ve etkinlik sektöründe sıradan standlar üretmenin ötesine geçerek, markaların kimliğini ve vizyonunu yansıtan özgün mekanlar tasarlayan bir ekibiz. 2025 yılında Antalya'da başlayan yolculuğumuz, Türkiye'nin dört bir yanındaki fuarlarda sayısız markanın başarı hikayesine ortak olmamızla devam etti.
+              Biz, fuar ve etkinlik sektöründe sıradan standlar üretmenin ötesine geçerek, markaların kimliğini ve vizyonunu yansıtan özgün mekanlar tasarlayan bir ekibiz. 2020 yılında Antalya'da başlayan yolculuğumuz, Türkiye'nin dört bir yanındaki fuarlarda sayısız markanın başarı hikayesine ortak olmamızla devam etti.
             </p>
             <h2 className="text-2xl font-bold text-gray-800 mb-3">Misyonumuz</h2>
             <p className="mb-6">
