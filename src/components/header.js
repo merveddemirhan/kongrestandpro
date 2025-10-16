@@ -34,8 +34,7 @@ function Header() {
 
   return (
     <header className={`${headerClasses} top-0 left-0 w-full z-20`}>
-      {/* --- DEĞİŞİKLİK 1: justify-between -> justify-start --- */}
-      <nav className="container mx-auto px-6 py-4 flex justify-start items-center">
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo (Anasayfa hariç görünür) */}
         <NavLink to="/" className={isHomePage ? 'hidden' : 'block'}>
@@ -43,8 +42,8 @@ function Header() {
         </NavLink>
         
         {/* === MASAÜSTÜ MENÜSÜ === */}
-        {/* --- DEĞİŞİKLİK 2: ml-10 class'ı eklendi --- */}
-        <div className="hidden md:flex items-center space-x-8 ml-10">
+        {/* --- DÜZELTME BURADA: Anasayfadaysak menüyü sağa itmek için ml-auto ekliyoruz --- */}
+        <div className={`hidden md:flex items-center space-x-8 ${isHomePage ? 'ml-auto' : ''}`}>
           <NavLink to="/" className={linkClasses}>Anasayfa</NavLink>
           <NavLink to="/projeler" className={linkClasses}>Projeler</NavLink>
           <NavLink to="/standlarimiz" className={linkClasses}>Hizmetler</NavLink>
@@ -53,8 +52,8 @@ function Header() {
         </div>
 
         {/* === MOBİL MENÜ İKONU (HAMBURGER) === */}
-        {/* Mobil ikonu sağa atmak için ml-auto eklendi */}
-        <div className="md:hidden ml-auto">
+        {/* Mobil ikonu her zaman sağa itmek için ml-auto kullanıyoruz */}
+        <div className="md:hidden ml-auto"> 
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
               <FiX className="h-8 w-8 text-white" />
