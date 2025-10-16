@@ -7,28 +7,22 @@ import { FaWhatsapp } from 'react-icons/fa';
 function HomePage() {
   return (
     <div>
-      {/* --- YENİ EKLENEN CSS BLOĞU --- */}
-      {/* Bu blok, ekran boyutuna göre arkaplan resmini değiştirir. */}
+      {/* Bu CSS bloğu mobil/masaüstü arkaplan resmini ayarlar */}
       <style>
         {`
           .hero-background {
-            /* Geniş ekranlar (Masaüstü) için varsayılan arkaplan */
-            background-image: url(/arkaplan.png);
+            background-image: url(/arkaplan.png); /* Varsayılan (Masaüstü) */
           }
-          
-          /* 768px'den dar ekranlar (Mobil) için bu kural uygulanır */
           @media (max-width: 768px) {
             .hero-background {
-              background-image: url(/arkaplan-mobil.png); 
+              background-image: url(/arkaplan-mobil.png); /* Mobil */
             }
           }
         `}
       </style>
 
-      {/* === BÖLÜM 1: TAM EKRAN KARŞILAMA GÖRSELİ (GÜNCELLENDİ) === */}
+      {/* === BÖLÜM 1: TAM EKRAN KARŞILAMA GÖRSELİ === */}
       <div
-        // Yeni class eklendi ve inline style'daki arkaplan resmi kaldırıldı.
-        // Diğer class'lar ve yapı aynen korundu.
         className="hero-background relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center text-center"
       >
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
@@ -50,11 +44,14 @@ function HomePage() {
         </div>
       </div>
 
-      {/* === BÖLÜM 2: MODERN TANITIM BÖLÜMÜ === */}
+      {/* === BÖLÜM 2: MODERN TANITIM BÖLÜMÜ (MOBİL SIRALAMA GÜNCELLENDİ) === */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
+            
+            {/* --- DEĞİŞİKLİK BURADA --- */}
+            {/* Bu div artık mobilde 2. sırada, masaüstünde 1. sırada */}
+            <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
                 Antalya ve Türkiye Genelinde Fuar Kongre Standı Tasarımı
               </h2>
@@ -70,13 +67,17 @@ function HomePage() {
                 </NavLink>
               </div>
             </div>
-            <div className="flex justify-center">
+            
+            {/* --- DEĞİŞİKLİK BURADA --- */}
+            {/* Bu div artık mobilde 1. sırada (en üstte), masaüstünde 2. sırada */}
+            <div className="flex justify-center order-1 lg:order-2">
               <img
-                src="/2.jpeg"
+                src="/5x32.jpeg"
                 alt="STANDPRO özel üretim fuar standı tasarımı"
                 className="rounded-2xl shadow-2xl w-full max-w-lg object-cover transform hover:scale-105 transition-transform duration-500 ease-out"
               />
             </div>
+            
           </div>
         </div>
       </section>
@@ -93,7 +94,7 @@ function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"><img src="/1.jpeg" alt="Modern Fuar Standı Tasarımı 2" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end p-6"><h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0"></h3></div></div>
+            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"><img src="/7x32.jpeg" alt="Modern Fuar Standı Tasarımı 2" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end p-6"><h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0"></h3></div></div>
             <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"><img src="/2.jpeg" alt="Modern Fuar Standı Tasarımı 3" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end p-6"><h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0"></h3></div></div>
             <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"><img src="/3.jpeg" alt="Modern Fuar Standı Tasarımı 4" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end p-6"><h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0"></h3></div></div>
             <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"><img src="/4.jpeg" alt="Modern Fuar Standı Tasarımı 5" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 flex items-end p-6"><h3 className="text-white text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0"></h3></div></div>
@@ -105,7 +106,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* === BÖLÜM 4: FUAR STANDI ÇÖZÜMLERİ === */}
+      {/* === BÖLÜM 4: FUAR STANDI ÇÖZÜMLERİ (DEĞİŞİKLİK GEREKMİYOR) === */}
       <section className="bg-slate-50 py-20 sm:py-24">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -125,9 +126,9 @@ function HomePage() {
         <div className="container mx-auto px-6"><div className="text-center max-w-3xl mx-auto mb-16"><h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">360° Fuar Standı Hizmetleri</h2><div className="mt-4 w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div><p className="mt-6 text-lg text-gray-600">Fikirden tasarıma, üretimden kuruluma kadar projenizin her aşamasında yanınızdayız.</p></div><div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"><div className="text-center"><div className="overflow-hidden rounded-lg shadow-lg"><img src="/tasarım.jpeg" alt="Tasarım Hizmetleri" className="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 ease-out" /></div><h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Tasarım Hizmetleri</h3><p className="text-gray-600 mb-4">Markanıza özel, dikkat çekici ve sahada uygulanabilir 3D stand tasarımları sunarız. Mimari estetikle birleşen teknik hassasiyetle, her projeyi özgün bir kimliğe dönüştürüyoruz.</p><NavLink to="/projeler" className="text-blue-600 font-semibold hover:underline">Stand Tasarımlarımızı İnceleyin</NavLink></div><div className="text-center"><div className="overflow-hidden rounded-lg shadow-lg"><img src="/uretim.jpg" alt="Üretim Hizmetleri" className="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 ease-out" /></div><h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Üretim Hizmetleri</h3><p className="text-gray-600 mb-4">Onaylanan tasarımları, kendi atölyemizde usta işçilik ve birinci sınıf malzemelerle hayata geçiriyoruz. Standınızın hem estetik hem de dayanıklı olması için her detay hassasiyetle işlenir.</p><NavLink to="/standlarimiz" className="text-blue-600 font-semibold hover:underline">Stand Üretim Hizmetlerimizi İnceleyin</NavLink></div><div className="text-center"><div className="overflow-hidden rounded-lg shadow-lg"><img src="/lojistik.jpg" alt="Lojistik ve Kurulum" className="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500 ease-out" /></div><h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">Lojistik ve Kurulum</h3><p className="text-gray-600 mb-4">Atölyeden fuar alanına kadar kusursuz bir deneyim sunuyoruz. Profesyonel lojistik ağımız ve saha ekiplerimiz, standınızın zamanında ve hatasız bir şekilde kurulmasını sağlar. Siz markanıza odaklanın, gerisini bize bırakın.</p><NavLink to="/standlarimiz" className="text-blue-600 font-semibold hover:underline">Lojistik ve Kurulum Hizmetlerimizi İnceleyin</NavLink></div></div></div>
       </section>
 
-      {/* === BÖLÜM 6: NEDEN BİZ? === */}
+      {/* === BÖLÜM 6: NEDEN BİZ? (DEĞİŞİKLİK GEREKMİYOR) === */}
       <section className="bg-white py-20 sm:py-24">
-        <div className="container mx-auto px-6"><div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center"><div className="flex justify-center"><img src="/isbirligi.jpeg" alt="Neden Bizi Tercih Etmelisiniz" className="rounded-2xl shadow-xl w-full max-w-md object-cover" /></div><div><p className="text-blue-600 font-semibold tracking-wide uppercase">PROJENİZE DEĞER KATIYORUZ</p><h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">Neden Bizi Tercih Etmelisiniz?</h2><div className="mt-10 space-y-8"><div className="flex items-start"><div className="flex-shrink-0"><div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-600 text-white"><FiShield size={24} /></div></div><div className="ml-4"><h3 className="text-xl font-bold text-gray-900">Anahtar Teslim Proje Yönetimi</h3><p className="mt-2 text-gray-600">Tasarım masasından fuar alanındaki son vidaya kadar tüm süreci sizin için tek bir merkezden yönetiyoruz. Karmaşayı ortadan kaldırır, size sadece projenizin keyfini çıkarmak kalır.</p></div></div><div className="flex items-start"><div className="flex-shrink-0"><div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-600 text-white"><FiUsers size={24} /></div></div><div className="ml-4"><h3 className="text-xl font-bold text-gray-900">Uzman Kadro ve Saha Hakimiyeti</h3><p className="mt-2 text-gray-600">Tasarımcılarımızdan üretimdeki ustalarımıza, saha operasyon ekibimize kadar her bir personelimiz, fuar sektörünün dinamiklerine hakim profesyonellerden oluşur. Başarınız, bizim tecrübemizle güvence altında.</p></div></div></div><div className="mt-12"><NavLink to="/iletisim" className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">İletişime Geçin</NavLink></div></div></div></div>
+        <div className="container mx-auto px-6"><div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center"><div className="flex justify-center"><img src="/isbirligi.jpeg" alt="Neden Bizi Tercih Etmeliniz" className="rounded-2xl shadow-xl w-full max-w-md object-cover" /></div><div><p className="text-blue-600 font-semibold tracking-wide uppercase">PROJENİZE DEĞER KATIYORUZ</p><h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">Neden Bizi Tercih Etmelisiniz?</h2><div className="mt-10 space-y-8"><div className="flex items-start"><div className="flex-shrink-0"><div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-600 text-white"><FiShield size={24} /></div></div><div className="ml-4"><h3 className="text-xl font-bold text-gray-900">Anahtar Teslim Proje Yönetimi</h3><p className="mt-2 text-gray-600">Tasarım masasından fuar alanındaki son vidaya kadar tüm süreci sizin için tek bir merkezden yönetiyoruz. Karmaşayı ortadan kaldırır, size sadece projenizin keyfini çıkarmak kalır.</p></div></div><div className="flex items-start"><div className="flex-shrink-0"><div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-600 text-white"><FiUsers size={24} /></div></div><div className="ml-4"><h3 className="text-xl font-bold text-gray-900">Uzman Kadro ve Saha Hakimiyeti</h3><p className="mt-2 text-gray-600">Tasarımcılarımızdan üretimdeki ustalarımıza, saha operasyon ekibimize kadar her bir personelimiz, fuar sektörünün dinamiklerine hakim profesyonellerden oluşur. Başarınız, bizim tecrübemizle güvence altında.</p></div></div></div><div className="mt-12"><NavLink to="/iletisim" className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out">İletişime Geçin</NavLink></div></div></div></div>
       </section>
 
       {/* === BÖLÜM 7: İLETİŞİM KARTLARI === */}

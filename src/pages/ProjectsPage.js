@@ -14,7 +14,7 @@ const projectData1 = {
     id: 1,
     title: '4x3 Kongre ve Fuar Standı Tasarımı',
     description: `Toplam 12 m²'lik bir alana yayılan, 4 metre genişlik ve 3 metre derinliğe sahip bu standlar, markanızın hikayesini anlatmak için size geniş bir tuval sunar. Bu popüler ölçü, hem dikkat çekici ürün sergileme alanları yaratmaya hem de müşterilerinizle konforlu görüşmeler yapabileceğiniz özel bir köşe oluşturmaya olanak tanır. Stratejik olarak planlandığında, ziyaretçi trafiğini en verimli şekilde yöneterek marka etkileşiminizi en üst düzeye çıkarır.`,
-    images: ['/2.jpeg', '/4.jpeg'],
+    images: ['/2.jpeg'],
     features: []
 };
 const projectData2 = {
@@ -24,7 +24,7 @@ const projectData2 = {
                      Toplam 10 m²'lik 5x2 standlarımız, tam da bu etkiyi yaratmak için tasarlanmıştır. 
                      5 metrelik kesintisiz ön cephesi, marka mesajınızı panoramik bir şekilde sunma imkanı verirken, 
                      2 metrelik akıllıca planlanmış derinliği, hızlı ve etkili görüşmeler için yeterli alanı sağlar.`,
-    images: ['/5.jpeg'],
+    images: ['/5.jpeg', '/5x2.jpeg'], // DÜZELTİLDİ: Resimler ayrı elemanlar olarak diziye eklendi.
     features: [
         '5 metrelik panoramik ön cephe', 'Maksimum marka ve ürün görünürlüğü', 'Yoğun koridorlar için stratejik tasarım',
         'Hızlı ve etkili ziyaretçi etkileşimi', 'Görsel odaklı ve modern sunum imkanı',
@@ -34,7 +34,7 @@ const projectData3 = {
     id: 3,
     title: '7x3 Stand',
     description: `7x3'lük bir stand, sadece bir sergileme alanı değil, fuar alanındaki marka elçinizdir. 21 m²'lik bu stratejik alan, size birden fazla deneyimi aynı anda sunma lüksü tanır. 7 metrelik panoramik sahnesi, büyük ölçekli görselleriniz, video duvarlarınız veya birden fazla ürün grubunuz için kesintisiz bir tuval yaratır. 3 metrelik konforlu derinliği ise ziyaretçilerinizi markanızın dünyasına davet eder; burada özel bir VIP görüşme köşesi, interaktif bir demo alanı veya geniş bir danışma bankosu rahatlıkla konumlandırılabilir. Bu, fuarda sadece "yer almak" değil, "ağırlık koymak" isteyen lider markaların tercihidir.`,
-    images: ['/1.jpeg'],
+    images: ['/7x32.jpeg', '/1.jpeg', '/7x33.jpeg'], // DÜZELTİLDİ: Resimler ayrıldı ve yazım hatası giderildi (jepg -> jpeg).
     features: [
         '21 m²\'lik stratejik ve prestijli alan', '7 metrelik etkileyici panoramik cephe', 'Özel VIP ve görüşme alanları yaratma imkanı',
         'Çok yönlü ve esnek tasarım olanakları', 'Fuar alanında marka hakimiyeti kurma',
@@ -44,11 +44,18 @@ const projectData4 = {
     id: 4,
     title: 'Marka Deneyiminiz İçin İdeal Alan: 5x3 Stand',
     description: `15 m²'lik 5x3 stand, bir fuarda ihtiyacınız olan her şeyi sunan stratejik bir "tatlı noktadır". Bu alan, sadece bir stant değil, markanız için bir iş yapma ve deneyim merkezidir. 5 metrelik geniş vitrini, ürünlerinizi ve marka mesajınızı etkileyici bir şekilde sunarken, 3 metrelik cömert derinliği, ziyaretçileri markanızın dünyasına davet etmenizi sağlar. Bu alanda hem şık bir karşılama bankosu, hem interaktif bir sunum köşesi, hem de yarı özel bir toplantı alanı rahatlıkla planlanabilir.`,
-    images: ['/3.jpeg'],
+    images: ['/3.jpeg', '/5x32.jpeg'], // DÜZELTİLDİ: Resimler ayrı elemanlar olarak diziye eklendi.
     features: [
         '15 m²\'lik ideal ve dengeli alan', 'Geniş karşılama ve sergileme cephesi', 'Derinlemesine marka deneyimi sunma imkanı',
         'İnteraktif sunum ve toplantı alanları için esneklik', 'Orta ölçekli bütçelerle maksimum etki',
     ]
+};
+const projectData5 = {
+    id: 5,
+    title: '4x3 Kongre ve Fuar Standı Tasarımı',
+    description: `Toplam 12 m²'lik bir alana yayılan, 4 metre genişlik ve 3 metre derinliğe sahip bu standlar, markanızın hikayesini anlatmak için size geniş bir tuval sunar. Bu popüler ölçü, hem dikkat çekici ürün sergileme alanları yaratmaya hem de müşterilerinizle konforlu görüşmeler yapabileceğiniz özel bir köşe oluşturmaya olanak tanır. Stratejik olarak planlandığında, ziyaretçi trafiğini en verimli şekilde yöneterek marka etkileşiminizi en üst düzeye çıkarır.`,
+    images: ['/4.jpeg'],
+    features: []
 };
 
 // Bu, her bir proje bölümünü render eden, tekrar kullanılabilir ve mobil öncelikli bir bileşen.
@@ -115,6 +122,8 @@ function ProjectsPage() {
         
         {/* Resim tekrar sola gelsin */}
         <ProjectSection project={projectData4} imageFirst={true} />
+          {/* Resim tekrar sağa gelsin */}
+        <ProjectSection project={projectData5} />
 
       </div>
     </div>
