@@ -1,6 +1,7 @@
 // src/pages/ProjectsPage.js
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // SEO için EKLENDİ
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -21,10 +22,10 @@ const projectData2 = {
     id: 2,
     title: '5x2 Panoramik Stand',
     description: `Fuar alanının hareketli koridorlarında ziyaretçilerin dikkatini anında çeken bir sunum hayal edin. 
-                     Toplam 10 m²'lik 5x2 standlarımız, tam da bu etkiyi yaratmak için tasarlanmıştır. 
-                     5 metrelik kesintisiz ön cephesi, marka mesajınızı panoramik bir şekilde sunma imkanı verirken, 
-                     2 metrelik akıllıca planlanmış derinliği, hızlı ve etkili görüşmeler için yeterli alanı sağlar.`,
-    images: ['/5.jpeg', '/5x2.jpeg'], // DÜZELTİLDİ: Resimler ayrı elemanlar olarak diziye eklendi.
+                    Toplam 10 m²'lik 5x2 standlarımız, tam da bu etkiyi yaratmak için tasarlanmıştır. 
+                    5 metrelik kesintisiz ön cephesi, marka mesajınızı panoramik bir şekilde sunma imkanı verirken, 
+                    2 metrelik akıllıca planlanmış derinliği, hızlı ve etkili görüşmeler için yeterli alanı sağlar.`,
+    images: ['/5.jpeg', '/5x2.jpeg'], 
     features: [
         '5 metrelik panoramik ön cephe', 'Maksimum marka ve ürün görünürlüğü', 'Yoğun koridorlar için stratejik tasarım',
         'Hızlı ve etkili ziyaretçi etkileşimi', 'Görsel odaklı ve modern sunum imkanı',
@@ -34,7 +35,7 @@ const projectData3 = {
     id: 3,
     title: '7x3 Stand',
     description: `7x3'lük bir stand, sadece bir sergileme alanı değil, fuar alanındaki marka elçinizdir. 21 m²'lik bu stratejik alan, size birden fazla deneyimi aynı anda sunma lüksü tanır. 7 metrelik panoramik sahnesi, büyük ölçekli görselleriniz, video duvarlarınız veya birden fazla ürün grubunuz için kesintisiz bir tuval yaratır. 3 metrelik konforlu derinliği ise ziyaretçilerinizi markanızın dünyasına davet eder; burada özel bir VIP görüşme köşesi, interaktif bir demo alanı veya geniş bir danışma bankosu rahatlıkla konumlandırılabilir. Bu, fuarda sadece "yer almak" değil, "ağırlık koymak" isteyen lider markaların tercihidir.`,
-    images: ['/7x32.jpeg', '/1.jpeg', '/7x33.jpeg'], // DÜZELTİLDİ: Resimler ayrıldı ve yazım hatası giderildi (jepg -> jpeg).
+    images: ['/7x32.jpeg', '/1.jpeg', '/7x33.jpeg'], 
     features: [
         '21 m²\'lik stratejik ve prestijli alan', '7 metrelik etkileyici panoramik cephe', 'Özel VIP ve görüşme alanları yaratma imkanı',
         'Çok yönlü ve esnek tasarım olanakları', 'Fuar alanında marka hakimiyeti kurma',
@@ -44,7 +45,7 @@ const projectData4 = {
     id: 4,
     title: 'Marka Deneyiminiz İçin İdeal Alan: 5x3 Stand',
     description: `15 m²'lik 5x3 stand, bir fuarda ihtiyacınız olan her şeyi sunan stratejik bir "tatlı noktadır". Bu alan, sadece bir stant değil, markanız için bir iş yapma ve deneyim merkezidir. 5 metrelik geniş vitrini, ürünlerinizi ve marka mesajınızı etkileyici bir şekilde sunarken, 3 metrelik cömert derinliği, ziyaretçileri markanızın dünyasına davet etmenizi sağlar. Bu alanda hem şık bir karşılama bankosu, hem interaktif bir sunum köşesi, hem de yarı özel bir toplantı alanı rahatlıkla planlanabilir.`,
-    images: ['/3.jpeg', '/5x32.jpeg'], // DÜZELTİLDİ: Resimler ayrı elemanlar olarak diziye eklendi.
+    images: ['/3.jpeg', '/5x32.jpeg'], 
     features: [
         '15 m²\'lik ideal ve dengeli alan', 'Geniş karşılama ve sergileme cephesi', 'Derinlemesine marka deneyimi sunma imkanı',
         'İnteraktif sunum ve toplantı alanları için esneklik', 'Orta ölçekli bütçelerle maksimum etki',
@@ -84,7 +85,10 @@ const ProjectSection = ({ project, imageFirst = false }) => (
         </div>
 
         {/* Metin Sütunu (Mobil için her zaman altta) */}
+        {/* DÜZELTME: FAZLADAN '>' İŞARETİ SİLİNDİ */}
         <div className="lg:sticky lg:top-24"> 
+            
+            {/* Başlık <h1> olarak korundu, böylece STİLİNİZ BOZULMAYACAK. */}
             <h1 className="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 {project.title}
             </h1>
@@ -108,7 +112,21 @@ const ProjectSection = ({ project, imageFirst = false }) => (
 // Ana Sayfa Bileşeni
 function ProjectsPage() {
   return (
+    // Sizin orijinal <div> etiketiniz.
     <div className="bg-gray-50 min-h-screen pt-16">
+
+      {/* SEO İÇİN GÖRÜNMEZ BLOK EKLENDİ */}
+      <Helmet>
+        <title>Projelerimiz | Fuar & Kongre Standı Portfolyosu | Standpro</title>
+        <meta 
+          name="description" 
+          content="Standpro'nun tamamladığı fuar standı projeleri. 4x3, 5x2, 7x3 ve 5x3 panoramik ve ada stand tasarımlarımızı ve portfolyomuzu inceleyin." 
+        />
+      </Helmet>
+      {/* SEO BLOK BİTİŞİ */}
+
+
+      {/* Sizin orijinal kodunuz aynen devam ediyor */}
       <div className="container mx-auto px-6 py-12 lg:py-16 space-y-16 lg:space-y-24">
         
         {/* Resim sağda başlasın */}

@@ -1,4 +1,9 @@
 // src/pages/HomePage.js
+
+import React from 'react'; // React importu
+import { Helmet } from 'react-helmet-async'; // SEO için eklendi
+
+// --- SİZİN ORİJİNAL KODUNUZ BAŞLIYOR ---
 import { NavLink } from 'react-router-dom';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import { FiShield, FiUsers } from 'react-icons/fi';
@@ -6,7 +11,22 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 function HomePage() {
   return (
-    <div>
+    // Sizin orijinal <div> etiketiniz. Hiçbir değişiklik yapılmadı.
+    <div> 
+
+      {/* SEO İÇİN EKLENEN GÖRÜNMEZ BLOK BAŞLANGICI */}
+      <Helmet>
+        <title>Standpro | Fuar & Kongre Standı Tasarım ve Kurulum Hizmetleri</title>
+        <meta 
+          name="description" 
+          content="Standpro, Antalya merkezli olup Türkiye geneli profesyonel fuar standı, kongre standı ve etkinlik çözümleri sunar. Yaratıcı tasarım, üretim, kiralama ve anahtar teslim kurulum hizmetlerimizle tanışın." 
+        />
+      </Helmet>
+      {/* SEO İÇİN EKLENEN GÖRÜNMEZ BLOK BİTİŞİ */}
+
+
+      {/* --- KODUNUZUN GERİ KALANI AYNEN DEVAM EDİYOR --- */}
+
       {/* Bu CSS bloğu mobil/masaüstü arkaplan resmini ayarlar */}
       <style>
         {`
@@ -153,7 +173,8 @@ function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+
+    </div> 
   );
 }
 

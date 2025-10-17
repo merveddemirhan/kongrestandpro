@@ -1,6 +1,7 @@
-// src/pages/StandsPage.js (Dosya adı olarak bu kullanılmalı)
+// src/pages/StandsPage.js
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // 1. Adım: Kütüphaneyi import edin
 import { NavLink } from 'react-router-dom';
 
 // Swiper React bileşenleri
@@ -38,6 +39,7 @@ const projectData = {
 };
 
 const solutionsData = [
+  // ... solutionsData veriniz aynı kalacak ...
   { title: '3x2 Kongre Standı', description: 'Kompakt alanlarda maksimum verimlilik sağlayan şık stand tasarımları.', link: '/stand-detay/3x2-kongre' },
   { title: '6x2 Kongre Standı', description: 'Orta ölçekli fuarlar için ideal, fonksiyonel çözümler.', link: '/stand-detay/6x2-kongre' },
   { title: '9x2 Kongre Standı', description: 'Geniş alanlarda güçlü marka görünürlüğü sağlayan tasarımlar.', link: '/stand-detay/9x2-kongre' },
@@ -48,92 +50,108 @@ const solutionsData = [
   { title: 'Fuar Standı', description: 'Her sektör ve ölçü için özel tasarım, üretim ve kurulum hizmeti.', link: '/stand-detay/fuar' },
 ];
 
-// === DEĞİŞİKLİK 1: Fonksiyon adı "StandsPage" olarak güncellendi ===
 function StandsPage() {
   return (
-    <div className="bg-gray-50 min-h-screen pt-16">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* SOL: Metin */}
-          <div className="text-gray-800 order-2 lg:order-1">
-            <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-              {projectData.title}
-            </h1>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line">
-              {projectData.description}
-            </p>
-          </div>
+    <> {/* 2. Adım: Helmet'i de içerebilmesi için bir Fragment (<>) ekledik */}
 
-          {/* SAĞ: Görsel Galeri */}
-          <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] order-1 lg:order-2">
-            <Swiper
-              modules={[Navigation, Pagination]}
-              navigation={true}
-              pagination={{ clickable: true }}
-              spaceBetween={10}
-              slidesPerView={1}
-              loop={true}
-              className="rounded-xl shadow-2xl h-full"
-            >
-              {projectData.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img
-                    src={image}
-                    alt={`Proje Görseli ${index + 1}`}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </div>
+      {/* 3. Adım: Bu sayfaya özel SEO etiketlerini ekleyin */}
+      <Helmet>
+        <title>Fuar Standı Çözümleri | Kongre, Ada & LED Ekranlı Standlar | Standpro</title>
+        <meta 
+          name="description" 
+          content="Standpro'nun fuar standı çözümlerini keşfedin. Kongre standları, 3x2, 6x4 ada standları, LED ekranlı tasarımlar ve tüm ölçülerde özel üretim fuar standı sistemleri." 
+        />
+      </Helmet>
 
-      {/* === Çözümler Bölümü === */}
-      <section className="bg-white py-20 sm:py-32">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
-              Fuar ve Kongre Standı Çözümlerimiz
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunmaktadır. Estetik tasarım anlayışımız ve fonksiyonel yaklaşımlarımızla markanızın fuar ve kongrelerde güçlü bir izlenim bırakmasını sağlıyoruz.
-            </p>
-          </div>
+      <div className="bg-gray-50 min-h-screen pt-16">
+        <div className="container mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* SOL: Metin */}
+            <div className="text-gray-800 order-2 lg:order-1">
+              
+              {/* 4. Adım (Başlık Hiyerarşisi): Bu <h1> etiketi sayfanın ana başlığı. Bu doğru. */}
+              <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+                {projectData.title}
+              </h1>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line">
+                {projectData.description}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {solutionsData.map((solution, index) => (
-              <NavLink
-                to={solution.link}
-                key={index}
-                className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 text-center flex flex-col justify-between"
+            {/* SAĞ: Görsel Galeri */}
+            <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] order-1 lg:order-2">
+              <Swiper
+                modules={[Navigation, Pagination]}
+                navigation={true}
+                pagination={{ clickable: true }}
+                spaceBetween={10}
+                slidesPerView={1}
+                loop={true}
+                className="rounded-xl shadow-2xl h-full"
               >
-                <div className="mb-6">
-                  <BuildingIcon />
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {solution.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{solution.description}</p>
-                </div>
-              </NavLink>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <NavLink
-              to="/projeler"
-              className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
-            >
-              PROJELER
-            </NavLink>
+                {projectData.images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={image}
+                      // 5. Adım (SEO İyileştirmesi): Alt etiketi daha açıklayıcı hale getirildi.
+                      alt={`${projectData.title} - Örnek ${index + 1}`}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* === Çözümler Bölümü === */}
+        <section className="bg-white py-20 sm:py-32">
+          <div className="container mx-auto px-6 max-w-7xl">
+            <div className="text-center mb-16">
+              
+              {/* Bu <h2> etiketi de <h1>'dan sonra geldiği için hiyerarşik olarak doğru. */}
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                Fuar ve Kongre Standı Çözümlerimiz
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunmaktadır. Estetik tasarım anlayışımız ve fonksiyonel yaklaşımlarımızla markanızın fuar ve kongrelerde güçlü bir izlenim bırakmasını sağlıyoruz.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {solutionsData.map((solution, index) => (
+                <NavLink
+                  to={solution.link}
+                  key={index}
+                  className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 text-center flex flex-col justify-between"
+                >
+                  <div className="mb-6">
+                    <BuildingIcon />
+                    {/* Bu <h3> başlıkları da <h2> altında olduğu için mükemmel. */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {solution.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">{solution.description}</p>
+                  </div>
+                </NavLink>
+              ))}
+            </div>
+
+            <div className="mt-16 text-center">
+              <NavLink
+                to="/projeler"
+                className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
+              >
+                PROJELER
+              </NavLink>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
 
-// === DEĞİŞİKLİK 2: Export ifadesi "StandsPage" olarak güncellendi ===
 export default StandsPage;
 
 
