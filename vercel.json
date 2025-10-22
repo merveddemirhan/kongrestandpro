@@ -1,7 +1,15 @@
 {
   "routes": [
     {
-      "src": "/(.*).(js|css|map|ico|png|jpeg|jpg|svg|xml|json|webmanifest)$",
+      "src": "/sitemap.xml",
+      "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/robots.txt"
+    },
+    {
+      "src": "/(.*).(js|css|map|ico|png|jpeg|jpg|svg|json|webmanifest)$",
       "dest": "/$1.$2"
     },
     {
