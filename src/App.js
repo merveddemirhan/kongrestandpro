@@ -1,7 +1,8 @@
 // src/App.js
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Analytics } from "@vercel/analytics/react"; // ✅ Vercel Analytics import edildi
+import { Analytics } from "@vercel/analytics/react"; 
+import { Helmet } from 'react-helmet-async'; // <-- 1. IMPORT EKLEYİN
 
 // Temel Bileşenleri Import Et
 import Header from './components/header';
@@ -19,6 +20,19 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        {/* 2. HELMET ETİKETLERİNİ BURAYA EKLEYİN */}
+        <Helmet>
+          <title>Standpro | Fuar & Kongre Standı Tasarım ve Kurulum Hizmetleri</title>
+          <meta
+            name="description"
+            content="Türkiye genelinde profesyonel, modern ve yenilikçi fuar standı, kongre standı ve karşılama deski tasarım, kurulum ve anahtar teslim hizmetleri."
+          />
+          {/* İKONLARINIZI BURAYA EKLEYİN (public klasöründen) */}
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" href="/StandproLogo.png" sizes="32x32" />
+          <link rel="apple-touch-icon" href="/logo.jpeg" />
+        </Helmet>
+      
         <Header />
         <main>
           <Routes>
@@ -33,7 +47,6 @@ function App() {
         <WhatsAppButton />
       </BrowserRouter>
 
-      {/* ✅ Vercel Analytics bileşeni (otomatik sayfa ve kullanıcı takibi yapar) */}
       <Analytics />
     </>
   );
