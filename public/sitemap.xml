@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
-    <loc>https://kongrestandpro.com/</loc>
+    <loc>https://www.kongrestandpro.com/</loc>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2025-10-22</lastmod>
   </url>
-  
   <url>
-    <loc>https://kongrestandpro.com/projeler</loc>
+    <loc>https://www.kongrestandpro.com/projeler</loc>
     <priority>0.90</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2025-10-22</lastmod>
   </url>
   <url>
-    <loc>https://kongrestandpro.com/standlarimiz</loc>
+    <loc>https://www.kongrestandpro.com/standlarimiz</loc>
     <priority>0.90</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2025-10-22</lastmod>
   </url>
   <url>
-    <loc>https://kongrestandpro.com/hakkimizda</loc>
+    <loc>https://www.kongrestandpro.com/hakkimizda</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2025-10-22</lastmod>
   </url>
   <url>
-    <loc>https://kongrestandpro.com/iletisim</loc>
+    <loc>https://www.kongrestandpro.com/iletisim</loc>
     <priority>0.80</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2025-10-22</lastmod>
   </url>
-
 </urlset>
