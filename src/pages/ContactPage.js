@@ -17,6 +17,14 @@ function ContactPage() {
           name="description" 
           content="Standpro ile iletişime geçin. Fuar, kongre standı ve etkinlik projeleriniz için bize telefon, e-posta veya form üzerinden ulaşın. Antalya merkezli, Türkiye geneli hizmet." 
         />
+        
+        {/*
+          Google Search Console hatalarını çözmek için eklenen 
+          standart (canonical) URL etiketi. 
+          Bu sayfanın URL'sinin '/iletisim' olduğunu varsayıyoruz.
+        */}
+        <link rel="canonical" href="https://www.kongrestandpro.com/iletisim" />
+
       </Helmet>
 
       <div className="bg-gradient-to-br from-gray-900 to-slate-800 min-h-screen pt-16">

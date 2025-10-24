@@ -14,6 +14,14 @@ function AboutPage() {
           name="description" 
           content="Standpro, 2020'den beri Antalya'dan başlayarak Türkiye geneline yenilikçi fuar standı tasarımı ve uygulama hizmetleri sunan uzman bir ekiptir. Misyonumuzu ve vizyonumuzu keşfedin." 
         />
+        
+        {/*
+          Google Search Console hatalarını çözmek için eklenen 
+          standart (canonical) URL etiketi. 
+          Vercel ayarlarınız 'www' üzerine olduğu için 'www'li versiyonu ekliyoruz.
+        */}
+        <link rel="canonical" href="https://www.kongrestandpro.com/hakkimizda" />
+
       </Helmet>
 
       <div className="bg-white min-h-screen pt-16">

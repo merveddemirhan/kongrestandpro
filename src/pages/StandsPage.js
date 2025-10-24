@@ -61,6 +61,13 @@ function StandsPage() {
           name="description" 
           content="Standpro'nun fuar standı çözümlerini keşfedin. Kongre standları, 3x2, 6x4 ada standları, LED ekranlı tasarımlar ve tüm ölçülerde özel üretim fuar standı sistemleri." 
         />
+        
+        {/*
+          Google Search Console hatalarını çözmek için eklenen 
+          standart (canonical) URL etiketi.
+        */}
+        <link rel="canonical" href="https://www.kongrestandpro.com/standlarimiz" />
+
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen pt-16">

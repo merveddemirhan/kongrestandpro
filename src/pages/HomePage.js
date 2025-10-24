@@ -21,6 +21,14 @@ function HomePage() {
           name="description" 
           content="Standpro, Antalya merkezli olup Türkiye geneli profesyonel fuar standı, kongre standı ve etkinlik çözümleri sunar. Yaratıcı tasarım, üretim, kiralama ve anahtar teslim kurulum hizmetlerimizle tanışın." 
         />
+        
+        {/*
+          Google Search Console hatalarını çözmek için eklenen 
+          standart (canonical) URL etiketi. 
+          Bu ana sayfa olduğu için adres kök dizindir.
+        */}
+        <link rel="canonical" href="https://www.kongrestandpro.com/" />
+
       </Helmet>
       {/* SEO İÇİN EKLENEN GÖRÜNMEZ BLOK BİTİŞİ */}
 

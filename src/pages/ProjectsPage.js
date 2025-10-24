@@ -22,9 +22,9 @@ const projectData2 = {
     id: 2,
     title: '5x2 Panoramik Stand',
     description: `Fuar alanının hareketli koridorlarında ziyaretçilerin dikkatini anında çeken bir sunum hayal edin. 
-                    Toplam 10 m²'lik 5x2 standlarımız, tam da bu etkiyi yaratmak için tasarlanmıştır. 
-                    5 metrelik kesintisiz ön cephesi, marka mesajınızı panoramik bir şekilde sunma imkanı verirken, 
-                    2 metrelik akıllıca planlanmış derinliği, hızlı ve etkili görüşmeler için yeterli alanı sağlar.`,
+                     Toplam 10 m²'lik 5x2 standlarımız, tam da bu etkiyi yaratmak için tasarlanmıştır. 
+                     5 metrelik kesintisiz ön cephesi, marka mesajınızı panoramik bir şekilde sunma imkanı verirken, 
+                     2 metrelik akıllıca planlanmış derinliği, hızlı ve etkili görüşmeler için yeterli alanı sağlar.`,
     images: ['/5.jpeg', '/5x2.jpeg'], 
     features: [
         '5 metrelik panoramik ön cephe', 'Maksimum marka ve ürün görünürlüğü', 'Yoğun koridorlar için stratejik tasarım',
@@ -122,6 +122,13 @@ function ProjectsPage() {
           name="description" 
           content="Standpro'nun tamamladığı fuar standı projeleri. 4x3, 5x2, 7x3 ve 5x3 panoramik ve ada stand tasarımlarımızı ve portfolyomuzu inceleyin." 
         />
+        
+        {/*
+          Google Search Console hatalarını çözmek için eklenen 
+          standart (canonical) URL etiketi.
+        */}
+        <link rel="canonical" href="https://www.kongrestandpro.com/projeler" />
+
       </Helmet>
       {/* SEO BLOK BİTİŞİ */}
 
@@ -140,7 +147,7 @@ function ProjectsPage() {
         
         {/* Resim tekrar sola gelsin */}
         <ProjectSection project={projectData4} imageFirst={true} />
-          {/* Resim tekrar sağa gelsin */}
+         {/* Resim tekrar sağa gelsin */}
         <ProjectSection project={projectData5} />
 
       </div>
