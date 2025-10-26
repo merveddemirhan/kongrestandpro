@@ -1,32 +1,29 @@
-// src/pages/StandsPage.js
-
 import React from 'react';
-import { Helmet } from 'react-helmet-async'; // 1. Adım: Kütüphaneyi import edin
+import { Helmet } from 'react-helmet-async';
 import { NavLink } from 'react-router-dom';
 
-// Swiper React bileşenleri
+// Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-
-// Swiper stilleri
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// İkonlar
+// Icons
 import { Building2 } from 'lucide-react';
 
-// --- Modern Building Icon bileşeni ---
+// Modern Building Icon
 const BuildingIcon = () => (
   <div className="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 transition-transform transform hover:scale-110 hover:bg-blue-200 duration-300">
-    <Building2 className="h-10 w-10 text-blue-600" />
+    <Building2 className="h-10 w-10 text-blue-600" aria-hidden="true" />
   </div>
 );
 
 const projectData = {
   id: 1,
   title: 'Fuar Standı Sistem ve Uygulamalarımız',
-  description: `Bu bölümde, farklı fuar ve etkinlik gereksinimleri için sunduğumuz stand sistemlerine ait uygulama örnekleri yer almaktadır. Portföyümüzü inceleyerek projeniz için en uygun çözümler hakkında fikir edinebilirsiniz.`,
+  description:
+    'Bu bölümde, farklı fuar ve etkinlik gereksinimleri için sunduğumuz stand sistemlerine ait uygulama örnekleri yer almaktadır. Portföyümüzü inceleyerek projeniz için en uygun çözümler hakkında fikir edinebilirsiniz.',
   images: [
     '/stand-1.jpeg',
     '/stand-2.jpeg',
@@ -39,7 +36,6 @@ const projectData = {
 };
 
 const solutionsData = [
-  // ... solutionsData veriniz aynı kalacak ...
   { title: '3x2 Kongre Standı', description: 'Kompakt alanlarda maksimum verimlilik sağlayan şık stand tasarımları.', link: '/stand-detay/3x2-kongre' },
   { title: '6x2 Kongre Standı', description: 'Orta ölçekli fuarlar için ideal, fonksiyonel çözümler.', link: '/stand-detay/6x2-kongre' },
   { title: '9x2 Kongre Standı', description: 'Geniş alanlarda güçlü marka görünürlüğü sağlayan tasarımlar.', link: '/stand-detay/9x2-kongre' },
@@ -52,22 +48,19 @@ const solutionsData = [
 
 function StandsPage() {
   return (
-    <> {/* 2. Adım: Helmet'i de içerebilmesi için bir Fragment (<>) ekledik */}
-
-      {/* 3. Adım: Bu sayfaya özel SEO etiketlerini ekleyin */}
+    <>
+      {/* SEO */}
       <Helmet>
         <title>Fuar Standı Çözümleri | Kongre, Ada & LED Ekranlı Standlar | Standpro</title>
-        <meta 
-          name="description" 
-          content="Standpro'nun fuar standı çözümlerini keşfedin. Kongre standları, 3x2, 6x4 ada standları, LED ekranlı tasarımlar ve tüm ölçülerde özel üretim fuar standı sistemleri." 
+        <meta
+          name="description"
+          content="Standpro'nun fuar standı çözümlerini keşfedin. Kongre standları, 3x2, 6x4 ada standları, LED ekranlı tasarımlar ve tüm ölçülerde özel üretim fuar standı sistemleri."
         />
-        
-        {/*
-          Google Search Console hatalarını çözmek için eklenen 
-          standart (canonical) URL etiketi.
-        */}
         <link rel="canonical" href="https://www.kongrestandpro.com/standlarimiz" />
-
+        {/* (Opsiyonel) paylaşım kartları */}
+        <meta property="og:title" content="Fuar Standı Çözümleri | Standpro" />
+        <meta property="og:description" content="Kongre, ada ve LED ekranlı stand çözümlerimizi keşfedin." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen pt-16">
@@ -75,8 +68,6 @@ function StandsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* SOL: Metin */}
             <div className="text-gray-800 order-2 lg:order-1">
-              
-              {/* 4. Adım (Başlık Hiyerarşisi): Bu <h1> etiketi sayfanın ana başlığı. Bu doğru. */}
               <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 {projectData.title}
               </h1>
@@ -89,20 +80,24 @@ function StandsPage() {
             <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] order-1 lg:order-2">
               <Swiper
                 modules={[Navigation, Pagination]}
-                navigation={true}
+                navigation
                 pagination={{ clickable: true }}
                 spaceBetween={10}
                 slidesPerView={1}
-                loop={true}
+                loop
+                aria-label="Fuar standı uygulama görselleri galerisi"
                 className="rounded-xl shadow-2xl h-full"
               >
-                {projectData.images.map((image, index) => (
-                  <SwiperSlide key={index}>
+                {projectData.images.map((src, index) => (
+                  <SwiperSlide key={`stand-${index}`}>
                     <img
-                      src={image}
-                      // 5. Adım (SEO İyileştirmesi): Alt etiketi daha açıklayıcı hale getirildi.
+                      src={src}
                       alt={`${projectData.title} - Örnek ${index + 1}`}
                       className="w-full h-full object-cover rounded-xl"
+                      loading="lazy"
+                      decoding="async"
+                      width="1600"
+                      height="1066"
                     />
                   </SwiperSlide>
                 ))}
@@ -111,30 +106,27 @@ function StandsPage() {
           </div>
         </div>
 
-        {/* === Çözümler Bölümü === */}
+        {/* Çözümler */}
         <section className="bg-white py-20 sm:py-32">
           <div className="container mx-auto px-6 max-w-7xl">
             <div className="text-center mb-16">
-              
-              {/* Bu <h2> etiketi de <h1>'dan sonra geldiği için hiyerarşik olarak doğru. */}
               <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
                 Fuar ve Kongre Standı Çözümlerimiz
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunmaktadır. Estetik tasarım anlayışımız ve fonksiyonel yaklaşımlarımızla markanızın fuar ve kongrelerde güçlü bir izlenim bırakmasını sağlıyoruz.
+                <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunar. Estetik ve fonksiyonel yaklaşımla fuar ve kongrelerde güçlü bir izlenim oluşturmanızı sağlarız.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {solutionsData.map((solution, index) => (
+              {solutionsData.map((solution, i) => (
                 <NavLink
                   to={solution.link}
-                  key={index}
+                  key={`solution-${i}`}
                   className="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 text-center flex flex-col justify-between"
                 >
                   <div className="mb-6">
                     <BuildingIcon />
-                    {/* Bu <h3> başlıkları da <h2> altında olduğu için mükemmel. */}
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {solution.title}
                     </h3>
@@ -160,6 +152,7 @@ function StandsPage() {
 }
 
 export default StandsPage;
+
 
 
 

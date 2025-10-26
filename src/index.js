@@ -1,14 +1,14 @@
+// src/index.js — React 18 uyumlu
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css'; // Stil dosyanız
+import './index.css';
 import App from './App';
 
-// DÜZELTME BURADA: Eksik olan bu satır hataya neden oluyordu
-import { HelmetProvider } from 'react-helmet-async'; 
+// HelmetProvider React 18'de gerekli
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Provider (sağlayıcı) App bileşeninizi sarmalı
 root.render(
   <React.StrictMode>
     <HelmetProvider>
@@ -16,3 +16,5 @@ root.render(
     </HelmetProvider>
   </React.StrictMode>
 );
+
+
