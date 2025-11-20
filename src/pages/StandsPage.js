@@ -19,37 +19,40 @@ const BuildingIcon = () => (
   </div>
 );
 
+// 🚨 GÜNCELLEDİĞİNİZ BÖLÜM: media dizisi, hem resimleri hem de videoları içerir.
 const projectData = {
   id: 1,
   title: 'Fuar Standı Sistem ve Uygulamalarımız',
   description:
     'Bu bölümde, farklı fuar ve etkinlik gereksinimleri için sunduğumuz stand sistemlerine ait uygulama örnekleri yer almaktadır. Portföyümüzü inceleyerek projeniz için en uygun çözümler hakkında fikir edinebilirsiniz.',
-  images: [
-    '/stand-1.jpeg',
-    '/stand-2.jpeg',
-    '/stand-3.jpeg',
-    '/stand-4.jpeg',
-    '/stand-5.jpeg',
-    '/stand-6.jpeg',
-    '/stand-7.jpeg',
-    '/stand-8.jpeg',
-    '/stand-9.jpeg',
-    '/stand-10.jpeg',
-    '/stand-11.jpeg',
-    '/stand-12.jpeg',
-    '/stand-13.jpeg',
-    '/stand-14.jpeg',
-    '/stand-15.jpeg',
-    '/stand-16.jpeg',
-    '/stand-17.jpeg',
-    '/stand-18.jpeg',
-    '/stand-19.jpeg',
-    '/stand-20.jpeg',
-    '/stand-21.jpeg',
-    '/stand-22.jpeg',
-    '/stand-23.jpeg',
-    '/stand-24.jpeg',
-    '/stand-25.jpeg',
+  media: [
+    { type: 'image', src: '/stand-1.jpeg' },
+    { type: 'image', src: '/stand-2.jpeg' },
+    { type: 'image', src: '/stand-3.jpeg' },
+    { type: 'image', src: '/stand-4.jpeg' },
+    { type: 'image', src: '/stand-5.jpeg' },
+    { type: 'image', src: '/stand-6.jpeg' },
+    { type: 'image', src: '/stand-7.jpeg' },
+    { type: 'image', src: '/stand-8.jpeg' },
+    { type: 'image', src: '/stand-9.jpeg' },
+    { type: 'image', src: '/stand-10.jpeg' },
+    { type: 'image', src: '/stand-11.jpeg' },
+    { type: 'image', src: '/stand-12.jpeg' },
+    { type: 'image', src: '/stand-13.jpeg' },
+    { type: 'image', src: '/stand-14.jpeg' },
+    { type: 'image', src: '/stand-15.jpeg' },
+    { type: 'image', src: '/stand-16.jpeg' },
+    { type: 'image', src: '/stand-17.jpeg' },
+    { type: 'image', src: '/stand-18.jpeg' },
+    { type: 'image', src: '/stand-19.jpeg' },
+    { type: 'image', src: '/stand-20.jpeg' },
+    { type: 'image', src: '/stand-21.jpeg' },
+    { type: 'image', src: '/stand-22.jpeg' },
+    { type: 'image', src: '/stand-23.jpeg' },
+    { type: 'image', src: '/stand-24.jpeg' },
+    { type: 'image', src: '/stand-25.jpeg' },
+     { type: 'video', src: '/stand-video-1.mp4' },
+    { type: 'video', src: '/stand-video-2.mp4' },
   ],
 };
 
@@ -102,21 +105,43 @@ function StandsPage() {
                 pagination={{ clickable: true }}
                 spaceBetween={10}
                 slidesPerView={1}
-                loop
-                aria-label="Fuar standı uygulama görselleri galerisi"
+                loop={false}
+                observer={true}
+                observeParents={true}
+                resizeObserver={false}
+                aria-label="Fuar standı uygulama görselleri ve videoları galerisi"
                 className="rounded-xl shadow-2xl h-full"
               >
-                {projectData.images.map((src, index) => (
-                  <SwiperSlide key={`stand-${index}`}>
-                    <img
-                      src={src}
-                      alt={`${projectData.title} - Örnek ${index + 1}`}
-                      className="w-full h-full object-cover rounded-xl"
-                      loading="lazy"
-                      decoding="async"
-                      width="1600"
-                      height="1066"
-                    />
+                {projectData.media.map((item, index) => (
+                  <SwiperSlide key={`media-${index}`}>
+                    {item.type === 'image' ? (
+                      <img
+                        src={item.src}
+                        alt={`${projectData.title} - Örnek ${index + 1}`}
+                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        decoding="async"
+                        width="1600"
+                        height="1066"
+                      />
+                    ) : (
+                      <video
+                        src={item.src}
+                        title={`${projectData.title} - Video ${index + 1}`}
+                        className="w-full h-full max-h-[70vh] object-contain bg-black rounded-xl"
+                        controls
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        onLoadedMetadata={() => {
+                          setTimeout(() => {
+                            window.dispatchEvent(new Event('resize'));
+                          }, 150);
+                        }}
+                      />
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>
