@@ -45,14 +45,12 @@ const projectData = {
     { type: 'image', src: '/stand-17.jpeg' },
     { type: 'image', src: '/stand-18.jpeg' },
     { type: 'image', src: '/stand-19.jpeg' },
-    { type: 'image', src: '/stand-20.jpeg' },
+    { type: 'image', src: '/stand-20.jpeg' } ,
     { type: 'image', src: '/stand-21.jpeg' },
     { type: 'image', src: '/stand-22.jpeg' },
     { type: 'image', src: '/stand-23.jpeg' },
     { type: 'image', src: '/stand-24.jpeg' },
     { type: 'image', src: '/stand-25.jpeg' },
-     { type: 'video', src: '/stand-video-1.mp4' },
-    { type: 'video', src: '/stand-video-2.mp4' },
   ],
 };
 
@@ -105,15 +103,14 @@ function StandsPage() {
                 pagination={{ clickable: true }}
                 spaceBetween={10}
                 slidesPerView={1}
-                loop={false}
-                observer={true}
-                observeParents={true}
-                resizeObserver={false}
+                loop
                 aria-label="Fuar standı uygulama görselleri ve videoları galerisi"
                 className="rounded-xl shadow-2xl h-full"
               >
+                {/* 🚨 GÜNCELLEDİĞİNİZ KISIM: projectData.media'yı map'liyoruz */}
                 {projectData.media.map((item, index) => (
                   <SwiperSlide key={`media-${index}`}>
+                    {/* Öğe türüne göre koşullu render (render) */}
                     {item.type === 'image' ? (
                       <img
                         src={item.src}
@@ -125,21 +122,16 @@ function StandsPage() {
                         height="1066"
                       />
                     ) : (
+                      // Video Oynatıcı
                       <video
                         src={item.src}
                         title={`${projectData.title} - Video ${index + 1}`}
-                        className="w-full h-full max-h-[70vh] object-contain bg-black rounded-xl"
-                        controls
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        onLoadedMetadata={() => {
-                          setTimeout(() => {
-                            window.dispatchEvent(new Event('resize'));
-                          }, 150);
-                        }}
+                        className="w-full h-full object-cover rounded-xl"
+                        controls // Oynatma kontrollerini gösterir
+                        autoPlay // Otomatik oynatma (muted ile önerilir)
+                        loop // Video bittiğinde tekrar başlatır
+                        muted // Otomatik oynatma için gereklidir
+                        playsInline // iOS cihazlarda tam ekran olmadan oynatmayı sağlar
                       />
                     )}
                   </SwiperSlide>
