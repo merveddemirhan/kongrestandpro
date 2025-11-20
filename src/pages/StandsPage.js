@@ -19,19 +19,39 @@ const BuildingIcon = () => (
   </div>
 );
 
+// GÜNCEL VE BİRLEŞTİRİLMİŞ projectData YAPISI (Video Entegre Edilmiş Hali)
 const projectData = {
   id: 1,
   title: 'Fuar Standı Sistem ve Uygulamalarımız',
   description:
     'Bu bölümde, farklı fuar ve etkinlik gereksinimleri için sunduğumuz stand sistemlerine ait uygulama örnekleri yer almaktadır. Portföyümüzü inceleyerek projeniz için en uygun çözümler hakkında fikir edinebilirsiniz.',
-  images: [
-    '/stand-1.jpeg',
-    '/stand-2.jpeg',
-    '/stand-3.jpeg',
-    '/stand-4.jpeg',
-    '/stand-5.jpeg',
-    '/stand-6.jpeg',
-    '/stand-7.jpeg',
+  media: [
+    { type: 'image', src: '/stand-1.jpeg' },
+    { type: 'video', src: '/fuar-video-ornek.mp4' }, // 👈 Video Örneği
+    { type: 'image', src: '/stand-2.jpeg' },
+    { type: 'image', src: '/stand-3.jpeg' },
+    { type: 'image', src: '/stand-4.jpeg' },
+    { type: 'image', src: '/stand-5.jpeg' },
+    { type: 'image', src: '/stand-6.jpeg' },
+    { type: 'image', src: '/stand-7.jpeg' },
+    { type: 'image', src: '/stand-8.jpeg' },
+    { type: 'image', src: '/stand-9.jpeg' },
+    { type: 'image', src: '/stand-10.jpeg' },
+    { type: 'image', src: '/stand-11.jpeg' },
+    { type: 'image', src: '/stand-12.jpeg' },
+    { type: 'image', src: '/stand-13.jpeg' },
+    { type: 'image', src: '/stand-14.jpeg' },
+    { type: 'image', src: '/stand-15.jpeg' },
+    { type: 'image', src: '/stand-16.jpeg' },
+    { type: 'image', src: '/stand-17.jpeg' },
+    { type: 'image', src: '/stand-18.jpeg' },
+    { type: 'image', src: '/stand-19.jpeg' },
+    { type: 'image', src: '/stand-20.jpeg' } ,
+    { type: 'image', src: '/stand-21.jpeg' },
+    { type: 'image', src: '/stand-22.jpeg' },
+    { type: 'image', src: '/stand-23.jpeg' },
+    { type: 'image', src: '/stand-24.jpeg' },
+    { type: 'image', src: '/stand-25.jpeg' },
   ],
 };
 
@@ -85,20 +105,38 @@ function StandsPage() {
                 spaceBetween={10}
                 slidesPerView={1}
                 loop
-                aria-label="Fuar standı uygulama görselleri galerisi"
+                observer={true} 
+                observeParents={true} 
+                aria-label="Fuar standı uygulama görselleri ve videoları galerisi"
                 className="rounded-xl shadow-2xl h-full"
               >
-                {projectData.images.map((src, index) => (
-                  <SwiperSlide key={`stand-${index}`}>
-                    <img
-                      src={src}
-                      alt={`${projectData.title} - Örnek ${index + 1}`}
-                      className="w-full h-full object-cover rounded-xl"
-                      loading="lazy"
-                      decoding="async"
-                      width="1600"
-                      height="1066"
-                    />
+                {/* BİRLEŞTİRİLMİŞ MAP FONKSİYONU */}
+                {projectData.media.map((item, index) => (
+                  <SwiperSlide key={`media-${index}`}>
+                    {/* Öğe türüne göre koşullu render (render) */}
+                    {item.type === 'image' ? (
+                      <img
+                        src={item.src}
+                        alt={`${projectData.title} - Örnek ${index + 1}`}
+                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        decoding="async"
+                        width="1600"
+                        height="1066"
+                      />
+                    ) : (
+                      // Video Oynatıcı
+                      <video
+                        src={item.src}
+                        title={`${projectData.title} - Video ${index + 1}`}
+                        className="w-full h-full object-cover rounded-xl"
+                        controls // Oynatma kontrollerini gösterir
+                        autoPlay // Otomatik oynatma (muted ile önerilir)
+                        loop // Video bittiğinde tekrar başlatır
+                        muted // Otomatik oynatma için gereklidir
+                        playsInline // iOS cihazlarda tam ekran olmadan oynatmayı sağlar
+                      />
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>

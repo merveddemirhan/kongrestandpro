@@ -1,4 +1,3 @@
-// src/index.js — React 18 uyumlu
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -16,5 +15,3 @@ root.render(
     </HelmetProvider>
   </React.StrictMode>
 );
-
-
