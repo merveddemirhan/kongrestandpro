@@ -1,0 +1,64 @@
+/* ===============================
+   GLOBAL RESET (boşlukları kaldırır)
+   =============================== */
+:root,
+html,
+body,
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
+  height: 100%;
+  width: 100%;
+}
+
+/* Tüm öğelerde box model tutarlılığı */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Yatay taşmayı engelle (bazı görseller geniş olabiliyor) */
+body {
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Koda özel yazı tipi */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ===============================
+   TAILWIND YÖNLENDİRMELERİ
+   =============================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   EK BASE KATMANI (opsiyonel)
+   =============================== */
+@layer base {
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
+  main {
+    display: block;
+  }
+
+  img, video, canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
