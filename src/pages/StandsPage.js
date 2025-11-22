@@ -55,8 +55,10 @@ const solutionsData = [
 ];
 
 function StandsPage() {
+  // GÜNCELLEME: pb-20 yerine pb-10 (iç boşluk azaldı)
+  // mb-16 yerine mb-8 (dış boşluk azaldı)
   const renderGallery = (project) => (
-    <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] w-full pb-20 mb-16 lg:mb-0">
+    <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] w-full pb-10 mb-8 lg:mb-0">
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
@@ -108,14 +110,13 @@ function StandsPage() {
         <link rel="canonical" href="https://www.kongrestandpro.com/standlarimiz" />
       </Helmet>
 
-      {/* GÜNCELLEME: pt-48 yerine pt-24 lg:pt-36 yapıldı. */}
-      {/* pt-24 (96px) -> Mobil menü yüksekliği kadar boşluk bırakır. */}
-      {/* lg:pt-36 (144px) -> Masaüstü menüsü için daha geniş alan bırakır. */}
       <div className="bg-gray-50 min-h-screen pt-24 lg:pt-36"> 
         <div className="container mx-auto px-6 pt-0 pb-16">
           
           {/* --- PROJE 1 --- */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+          {/* gap-12 yerine gap-8 (Mobilde görsel ve metin arası biraz daha sıkı) */}
+          {/* mb-32 yerine mb-20 (Bölümler arası boşluk azaldı) */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-20">
             
             {/* HTML SIRA 1: METİN (Mobilde Üstte) */}
             <div className="text-gray-800 text-left w-full lg:order-1">
@@ -134,7 +135,7 @@ function StandsPage() {
           </div>
 
           {/* --- PROJE 2 --- */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-20">
             
             {/* HTML SIRA 1: METİN (Mobilde Yine Üstte!) */}
             <div className="text-gray-800 text-left w-full lg:order-2">
@@ -153,7 +154,7 @@ function StandsPage() {
           </div>
           
           {/* --- PROJE 3 --- */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-20">
             
             {/* HTML SIRA 1: METİN (Mobilde Üstte) */}
             <div className="text-gray-800 text-left w-full lg:order-1">
