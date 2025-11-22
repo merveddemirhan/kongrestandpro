@@ -44,11 +44,20 @@ function HomePage() {
           <div className="mt-10">
             <NavLink
               to="/projeler"
-              className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
             >
               Projelerimizi Keşfedin
             </NavLink>
+          
           </div>
+          <div className="mt-10">
+              <NavLink
+              to="/standlarimiz"
+              className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300 ease-in-out"
+            >
+              Yaptığımız İşlere Göz Atın
+            </NavLink>
+        </div>
         </div>
       </div>
 
