@@ -56,7 +56,7 @@ const solutionsData = [
 
 function StandsPage() {
   const renderGallery = (project) => (
-    <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh]">
+    <div className="lg:sticky lg:top-24 max-h-[600px] lg:h-screen lg:max-h-[70vh] w-full pb-20 mb-16 lg:mb-0">
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
@@ -67,7 +67,7 @@ function StandsPage() {
         observer={true}
         observeParents={true}
         aria-label={`${project.title} görsel galerisi`}
-        className="rounded-xl shadow-2xl h-full"
+        className="rounded-xl shadow-2xl h-full w-full"
       >
         {project.media.map((item, index) => (
           <SwiperSlide key={`media-${project.id}-${index}`}>
@@ -99,7 +99,6 @@ function StandsPage() {
 
   return (
     <>
-      {/* SEO */}
       <Helmet>
         <title>Fuar Standı Çözümleri | Kongre, Ada & LED Ekranlı Standlar | Standpro</title>
         <meta
@@ -107,37 +106,72 @@ function StandsPage() {
           content="Standpro'nun fuar standı çözümlerini keşfedin. Kongre standları, 3x2, 6x4 ada standları, LED ekranlı tasarımlar ve tüm ölçülerde özel üretim fuar standı sistemleri."
         />
         <link rel="canonical" href="https://www.kongrestandpro.com/standlarimiz" />
-        <meta property="og:title" content="Fuar Standı Çözümleri | Standpro" />
-        <meta property="og:description" content="Kongre, ada ve LED ekranlı stand çözümlerimizi keşfedin." />
-        <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="bg-gray-50 min-h-screen pt-16">
-        <div className="container mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-            <div className="text-gray-800 order-2 lg:order-1">
-              <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">{projectData.title}</h1>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line">{projectData.description}</p>
+      {/* GÜNCELLEME: pt-48 yerine pt-24 lg:pt-36 yapıldı. */}
+      {/* pt-24 (96px) -> Mobil menü yüksekliği kadar boşluk bırakır. */}
+      {/* lg:pt-36 (144px) -> Masaüstü menüsü için daha geniş alan bırakır. */}
+      <div className="bg-gray-50 min-h-screen pt-24 lg:pt-36"> 
+        <div className="container mx-auto px-6 pt-0 pb-16">
+          
+          {/* --- PROJE 1 --- */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+            
+            {/* HTML SIRA 1: METİN (Mobilde Üstte) */}
+            <div className="text-gray-800 text-left w-full lg:order-1">
+              <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight text-left">
+                {projectData.title}
+              </h1>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line text-left">
+                {projectData.description}
+              </p>
             </div>
-            <div className="order-1 lg:order-2">{renderGallery(projectData)}</div>
+            
+            {/* HTML SIRA 2: GALERİ (Mobilde Altta) */}
+            <div className="w-full lg:order-2">
+              {renderGallery(projectData)}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-            <div className="order-1 lg:order-1">{renderGallery(projectData2)}</div>
-            <div className="text-gray-800 order-2 lg:order-2">
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">{projectData2.title || 'Özel Standlar'}</h2>
-              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">{projectData2.description}</p>
+          {/* --- PROJE 2 --- */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+            
+            {/* HTML SIRA 1: METİN (Mobilde Yine Üstte!) */}
+            <div className="text-gray-800 text-left w-full lg:order-2">
+              <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight text-left">
+                {projectData2.title || 'Özel Standlar'}
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line text-left">
+                {projectData2.description}
+              </p>
+            </div>
+
+            {/* HTML SIRA 2: GALERİ (Mobilde Altta) */}
+            <div className="w-full lg:order-1">
+              {renderGallery(projectData2)}
             </div>
           </div>
-         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-            <div className="text-gray-800 order-2 lg:order-1">
-              <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">{projectData3.title}</h1>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line">{projectData3.description}</p>
+          
+          {/* --- PROJE 3 --- */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-start mb-32">
+            
+            {/* HTML SIRA 1: METİN (Mobilde Üstte) */}
+            <div className="text-gray-800 text-left w-full lg:order-1">
+              <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight text-left">
+                {projectData3.title}
+              </h1>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed whitespace-pre-line text-left">
+                {projectData3.description}
+              </p>
             </div>
-            <div className="order-1 lg:order-2">{renderGallery(projectData3)}</div>
+            
+            {/* HTML SIRA 2: GALERİ (Mobilde Altta) */}
+            <div className="w-full lg:order-2">
+              {renderGallery(projectData3)}
+            </div>
           </div>
 
-          {/* Çözümler */}
+          {/* ÇÖZÜMLER BÖLÜMÜ */}
           <section className="bg-white py-20 sm:py-32">
             <div className="container mx-auto px-6 max-w-7xl">
               <div className="text-center mb-16">
@@ -145,7 +179,7 @@ function StandsPage() {
                   Fuar ve Kongre Standı Çözümlerimiz
                 </h2>
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                  <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunar. Estetik ve fonksiyonel yaklaşımla fuar ve kongrelerde güçlü bir izlenim oluşturmanızı sağlarız.
+                  <strong className="text-blue-600">KongreStandPro</strong>, markaların ihtiyaçlarına özel, farklı ölçülerde modern ve kurumsal fuar standı çözümleri sunar.
                 </p>
               </div>
 
